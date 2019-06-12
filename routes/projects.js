@@ -11,6 +11,6 @@ router.get('/:id', ProjectsController.ProjectById_get);
 
 router.post('/', ProjectsController.addProject_post);
 
-router.post('/update', ProjectsController.addReview_post);
+router.post('/update', ProjectsController.addComment_post);
 
 module.exports = router;

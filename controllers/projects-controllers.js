@@ -1,5 +1,5 @@
-const ProjectsModels = require('../models/projects.js');
-const CommentModels = require('../models/comments.js');
+const ProjectsModels = require('../models/projects-models.js');
+const CommentModels = require('../models/comments-models.js');
 
 
 exports.allProjects_get = async (req, res) => {
@@ -35,9 +35,9 @@ exports.ProjectById_get = async (req, res) => {
 }
 
 exports.addProject_post = async (req, res) => {
-    const { title, title_long, isbn, publisher, date_published} = req.body;
+    const { project_title, project_start, project_summary, project_url, project_open, project_users_id} = req.body;
 
-    ProjectsModels.add(title, title_long, isbn, publisher, date_published)
+    ProjectsModels.add(project_title, project_start, project_summary, project_url, project_open, project_users_id)
     .then(async () => {
         const allProjects = await ProjectsModels.getAll();
         
