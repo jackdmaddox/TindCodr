@@ -1,4 +1,4 @@
-const db = requrire('./conn');
+const db = require('./conn');
 
 class Projects {
     constructor(id, project_title, project_start, project_summary, project_url, project_open, project_users_id) {
