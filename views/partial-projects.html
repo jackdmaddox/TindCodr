@@ -12,12 +12,12 @@
         </thead>
     ${projectsList.map(projects => 
         `<tr>
-            <td><a href="/projects/${projects.id}">${projects.title}</a></td>
-            <td>${projects.title_long}</td>
-            <td>${projects.isbn}</td>
-            <td>${projects.publisher}</td>
-            <td>${projects.date_published}</td>
-            <td><img src="${projects.picture}" alt="project cover photo picture"></td>
+            <td><a href="/projects/${projects.id}">${projects.project_title}</a></td>
+            <td>${projects.project_start}</td>
+            <td>${projects.project_summary}</td>
+            <td>${projects.project_url}</td>
+            <td>${projects.project_open}</td>
+            <td>${projects.project_users_id}</td>
         </tr>`
     ).join('')}
     </table>
@@ -26,23 +26,23 @@
     ${!!is_logged_in ? `
 <p>Add a new project!</p>
 <form action="/racetracks" method="POST">
-    <label>Tile 
-        <input type="text" name="title">
+    <label>Project Title
+        <input type="text" name="project_title">
     </label>
-    <label>Longer Title 
-        <input type="text" name="title_long">
+    <label>Project Start
+        <input type="text" name="project_start">
     </label>
-    <label>ISBN
-        <input type="text" name="isbn">
+    <label>Project Summary
+        <input type="text" name="project_summary">
     </label>
-    <label>Publisher 
-        <input type="text" name="publisher">
+    <label>Project URL
+        <input type="text" name="project_url">
     </label>
-    <label>Year Published
-        <input type="text" name="date_published">
+    <label>Project Open
+        <input type="text" name="project_open">
     </label>
-    <label>Picture Folder
-        <input type="text" name="picture">
+    <label>Project User's ID
+        <input type="text" name="project_users_id">
     </label>
     <button type="submit" class='is-primary'>Submit</button>
 </form>
