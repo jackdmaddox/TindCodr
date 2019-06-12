@@ -1,6 +1,6 @@
 const db = require('./conn-model');
 
-class Comment {
+class Comments {
     constructor(id, comments_content, book_id, user_id){
         this.id = id;
         this.comments_content = comments_content;

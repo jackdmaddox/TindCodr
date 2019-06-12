@@ -57,6 +57,7 @@ class User {
         }
     }
 
-}
+//add get all users function
 
-module.exports = User
+}
+module.exports = User;

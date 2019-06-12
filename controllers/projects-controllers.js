@@ -1,7 +1,6 @@
 const ProjectsModels = require('../models/projects.js');
 const CommentModels = require('../models/comments.js');
 
-
 exports.allProjects_get = async (req, res) => {
     const allProjects = await ProjectsModels.getAll();
     res.render('template', {
