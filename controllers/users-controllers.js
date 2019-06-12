@@ -47,7 +47,7 @@ exports.sign_up_get = (req, res) => {
     });
 }
 
-exports.logout = (req, res) => {
+exports.logout_get = (req, res) => {
     console.log('logging out');
     req.session.destroy();
     res.redirect('/');

@@ -2,22 +2,20 @@
     <table class="table">
         <thead>
             <tr>
-                <td> Project Title </td>
-                <td> Starts </td>
-                <td> Summary </td>
-                <td> Project Links </td>
-                <td> Project Open </td>
-                <td> Creator's Name </td>
+                <td> Title </td>
+                <td> Project Start </td>
+                <td> Project Summary </td>
+                <td> Project Url </td>
+                <td> Project Open</td>
             </tr>
         </thead>
     ${projectsList.map(projects => 
         `<tr>
-            <td><a href="/projects/${projects.id}">${projects.title}</a></td>
-            <td>${projects.title_long}</td>
-            <td>${projects.isbn}</td>
-            <td>${projects.publisher}</td>
-            <td>${projects.date_published}</td>
-            <td><img src="${projects.picture}" alt="project cover photo picture"></td>
+            <td><a href="/projects/${projects.id}">${projects.project_title}</a></td>
+            <td>${projects.project_start}</td>
+            <td>${projects.project_summary}</td>
+            <td>${projects.project_url}</td>
+            <td>${projects.project_open}</td>
         </tr>`
     ).join('')}
     </table>
