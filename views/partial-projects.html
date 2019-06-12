@@ -10,42 +10,43 @@
                 <td> Creator's Name </td>
             </tr>
         </thead>
-    ${projectsList.map(projects => 
+        ${projectsList.map(projects =>
         `<tr>
             <td><a href="/projects/${projects.id}">${projects.title}</a></td>
-            <td>${projects.title_long}</td>
-            <td>${projects.isbn}</td>
-            <td>${projects.publisher}</td>
-            <td>${projects.date_published}</td>
+            <td>${projects.start}</td>
+            <td>${projects.summary}</td>
+            <td>${projects.url}</td>
+            <td>${projects.open}</td>
+            <td>${projects.users.id</td>
             <td><img src="${projects.picture}" alt="project cover photo picture"></td>
         </tr>`
-    ).join('')}
+        ).join('')}
     </table>
 </section>
 <section class="section">
     ${!!is_logged_in ? `
-<p>Add a new project!</p>
-<form action="/racetracks" method="POST">
-    <label>Tile 
-        <input type="text" name="title">
-    </label>
-    <label>Longer Title 
-        <input type="text" name="title_long">
-    </label>
-    <label>ISBN
-        <input type="text" name="isbn">
-    </label>
-    <label>Publisher 
-        <input type="text" name="publisher">
-    </label>
-    <label>Year Published
-        <input type="text" name="date_published">
-    </label>
-    <label>Picture Folder
-        <input type="text" name="picture">
-    </label>
-    <button type="submit" class='is-primary'>Submit</button>
-</form>
-` : ` 
-<p> Login to add a new project listing!</p> `}
+    <p>Add a new project!</p>
+    <form action="/racetracks" method="POST">
+        <label>Title
+            <input type="text" name="title">
+        </label>
+        <label>Start
+            <input type="text" name="start">
+        </label>
+        <label>Summary
+            <input type="text" name="summary">
+        </label>
+        <label>Url
+            <input type="text" name="url">
+        </label>
+        <label>Open
+            <input type="text" name="open">
+        </label>
+        <label>Users_id
+            <input type="text" name="users_id">
+        </label>
+        <button type="submit" class='is-primary'>Submit</button>
+    </form>
+    ` : `
+    <p> Login to add a new project listing!</p> `}
 </section>

@@ -1,6 +1,6 @@
 const db = require('./conn-model');
 
-class Comment {
+class Comments {
     constructor(id, comments_content, comments_project_id, comments_user_id){
         this.id = id;
         this.comments_content = comments_content;
@@ -10,7 +10,7 @@ class Comment {
 
     static async getById(id) {
         try {
-            const response = await db.any(`select * from comments where project_id=${id}`);
+            const response = await db.any(`select * from comments where comments_project_id=${id}, `);
             console.log(response);
             return response;
         } catch(err) {

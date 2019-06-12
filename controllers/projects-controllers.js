@@ -1,5 +1,5 @@
-const ProjectsModels = require('../models/projects-models.js');
-const CommentModels = require('../models/comments-models.js');
+const ProjectsModels = require('../models/projects-model');
+const CommentModels = require('../models/comments-model');
 
 
 exports.allProjects_get = async (req, res) => {
