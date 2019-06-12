@@ -2,21 +2,13 @@ const db = require('./conn-model'),
     bcrypt = require('bcryptjs');
 
 class User {
-<<<<<<< HEAD
-    constructor(id, users_first_name, users_last_name, users_email, users_password, users_city, password) {
-=======
     constructor(id, users_first_name, users_last_name, users_email, users_password, users_city) {
->>>>>>> 60262b63dc8f42fff7b0a0706db8c41e4ccc2ae5
         this.id = id;
         this.users_first_name = users_first_name;
         this.users_last_name = users_last_name;
         this.users_email = users_email;
         this.users_password = users_password;
-<<<<<<< HEAD
-        this.users_city = users_city;   
-=======
         this.users_city = users_city;
->>>>>>> 60262b63dc8f42fff7b0a0706db8c41e4ccc2ae5
     }
 
     async checkPassword(hashedPassword) {
@@ -40,7 +32,6 @@ class User {
             return err.message;
         }
     }
-<<<<<<< HEAD
 
     async login() {
         try {
@@ -65,8 +56,6 @@ class User {
         }
     }
 
-=======
->>>>>>> 60262b63dc8f42fff7b0a0706db8c41e4ccc2ae5
 }
 
 module.exports = User

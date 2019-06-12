@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const db = requrire('./conn');
-=======
-const db = requrire('./conn-model');
->>>>>>> 60262b63dc8f42fff7b0a0706db8c41e4ccc2ae5
+const db = require('./conn-model');
 
 class Projects {
     constructor(id, project_title, project_start, project_summary, project_url, project_open, project_users_id) {
@@ -39,11 +35,7 @@ class Projects {
     static async addProject(project_title, project_start, project_summary, project_url, project_open, project_users_id) {
         const query = `insert into projects
         (project_title, project_start, project_summary, project_url, project_open)
-<<<<<<< HEAD
-    Values ('${project_title}', '${project_start}','${project_summary}', '${project_url}', '${project_open}')`;
-=======
-    Values ('${project_title}', '${project_start}','${project_summary}', '${project_url}', '${project_open}', '${project_users_id})`;
->>>>>>> 60262b63dc8f42fff7b0a0706db8c41e4ccc2ae5
+    Values ('${project_title}', '${project_start}','${project_summary}', '${project_url}', '${project_open}', ${project_users_id})`;
         try {
             let response = await db.result(query);
             return response;

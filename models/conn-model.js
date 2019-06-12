@@ -6,7 +6,7 @@ const pgp = require('pg-promise')({
 const options = {
     host: 'localhost',
     database: 'tindcodr',
-    user: 'jack'
+    user: 'nguyent'
 };
 const db = pgp(options);
 module.exports = db;
