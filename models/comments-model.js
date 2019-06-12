@@ -1,11 +1,11 @@
 const db = require('./conn-model');
 
-class Comments {
-    constructor(id, comments_content, book_id, user_id){
+class Comment {
+    constructor(id, comments_content, comments_project_id, comments_user_id){
         this.id = id;
         this.comments_content = comments_content;
-        this.projectId = project_id;
-        this.userId = user_id;
+        this.projectId = comments_project_id;
+        this.userId = comments_user_id;
     }
 
     static async getById(id) {
