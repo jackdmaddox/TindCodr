@@ -28,13 +28,8 @@ class Comments {
         }
     }
 
-<<<<<<< HEAD
-    static async addComment(comments_content, project_id, user_id) {
-        const query = `insert into comments (comments_content, project_id, user_id) values ('${comments_content}', ${comments_project_id}, ${user_id})`;
-=======
     static async addComment(comments_content, comments_project_id, comments_user_id) {
         const query = `insert into comments (comments_content, comments_project_id, comments_user_id) values ('${comments_content}', ${comments_project_id}, ${comments_user_id})`;
->>>>>>> jackdmaddox-staging-area
         try {
             let response = await db.result(query);
             return response;
