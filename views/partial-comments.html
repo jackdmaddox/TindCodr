@@ -1,0 +1,65 @@
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td> Title </td>
+                <td> Longer Title </td>
+                <td> ISBN </td>
+                <td> Publisher </td>
+                <td> Year Published </td>
+                <td> project Cover </td>
+            </tr>
+        </thead>
+            <tr>
+                <td>${projectDetails.title}</td>
+                <td>${projectDetails.title_long}</td>
+                <td>${projectDetails.isbn}</td>
+                <td>${projectDetails.publisher}</td>
+                <td>${projectDetails.date_published}</td>
+                <td><img src="${projectDetails.picture}" alt="project cover photo picture"></td>
+    </table>
+</section>
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td> Score </td>
+                <td> Content </td>
+                <td> User Id </td>
+            </tr>
+        </thead>
+        ${projectReview.map(reviews =>
+        `<tr>
+            <td>${reviews.score}</td>
+            <td>${reviews.content}</td>
+            <td>${reviews.user_id}</td>
+        </tr>`
+        ).join('')}
+    </table>
+</section>
+<section class="section">
+    ${!!is_logged_in ? `
+    <h1>Add a new project Review!</h1>
+    <br>
+    <form action="/projects/update" method="POST">
+        <input type="hidden" name="project_id" value="${projectDetails.id}">
+        <input type="hidden" name="user_id" value="${user_id}">
+        <label>Write Your Review Below:
+            <br>
+            <textarea rows="10" cols="60" name="content"> </textarea>
+        </label>
+        <br>
+        <label>project Rating 
+                <span style="display:inline-block; margin: right; font-size: 16px;">
+                <input type="radio" value="1" name="score"> 1 
+                <input type="radio" value="2" name="score"> 2
+                <input type="radio" value="3" name="score"> 3
+                <input type="radio" value="4" name="score"> 4
+                <input type="radio" value="5" name="score"> 5
+                </span>
+            </label>
+        <button type="submit" class='is-primary'>Submit</button>
+    </form>
+    ` : `
+    <P> Login to submit your review </P> `}
+</section>

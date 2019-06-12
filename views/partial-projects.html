@@ -1,0 +1,51 @@
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td> Project Title </td>
+                <td> Starts </td>
+                <td> Summary </td>
+                <td> Project Links </td>
+                <td> Project Open </td>
+                <td> Creator's Name </td>
+            </tr>
+        </thead>
+    ${projectsList.map(projects => 
+        `<tr>
+            <td><a href="/projects/${projects.id}">${projects.title}</a></td>
+            <td>${projects.title_long}</td>
+            <td>${projects.isbn}</td>
+            <td>${projects.publisher}</td>
+            <td>${projects.date_published}</td>
+            <td><img src="${projects.picture}" alt="project cover photo picture"></td>
+        </tr>`
+    ).join('')}
+    </table>
+</section>
+<section class="section">
+    ${!!is_logged_in ? `
+<p>Add a new project!</p>
+<form action="/racetracks" method="POST">
+    <label>Tile 
+        <input type="text" name="title">
+    </label>
+    <label>Longer Title 
+        <input type="text" name="title_long">
+    </label>
+    <label>ISBN
+        <input type="text" name="isbn">
+    </label>
+    <label>Publisher 
+        <input type="text" name="publisher">
+    </label>
+    <label>Year Published
+        <input type="text" name="date_published">
+    </label>
+    <label>Picture Folder
+        <input type="text" name="picture">
+    </label>
+    <button type="submit" class='is-primary'>Submit</button>
+</form>
+` : ` 
+<p> Login to add a new project listing!</p> `}
+</section>
