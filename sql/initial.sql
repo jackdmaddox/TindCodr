@@ -4,14 +4,14 @@ VALUES
     ('jack', 'maddox', 'jack@email.com', 'password', 'Atlanta'),
     ('thomas', 'nguyen', 'thomas@email.com', 'drowssap', 'Atlanta');
 
-insert into project
-    (project_title, project_start, project_summary, project_url, project_open)
+insert into projects
+    (project_title, project_start, project_summary, project_url, project_open, project_users_id)
 VALUES
-    ('tindcodr', 'friday', 'group project 2 to take over the world!', 'bigurl here', 'Open'),
-    ('tindcodr', 'saturday', 'backend project in the making!', 'match me', 'Open');
+    ('tindcodr', 'friday', 'group project 2 to take over the world!', 'bigurl here', 'Open', 1),
+    ('tindcodr', 'saturday', 'backend project in the making!', 'match me', 'Open', 2);
 
 insert into comments
     (comments_content, comments_users_id, comments_project_id)
 VALUES
     ('this project is the best', 1, 1),
-    ('found my soulmate on here', 1, 1);
+    ('found my soulmate on here', 2, 1);
