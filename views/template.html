@@ -11,7 +11,7 @@
     <nav class="navbar main-nav is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
             <a class="navbar-item" href='/'>Home</a>
-            <a class="navbar-item" href='/books'>All the Books</a>
+            <a class="navbar-item" href='/projects'>Latest Projects</a>
         </div>
         ${!!is_logged_in ? `
             <div class ="navbar-end">
@@ -20,8 +20,6 @@
             ` : `
             <div class ="navbar-end">
                 <a class="navbar-item" href="/users/login"> Login </a> 
-            </div>
-            <div class ="navbar-end">
                 <a class="navbar-item" href="/users/signup"> Signup</a>
             </div>
             `}

@@ -1,22 +1,23 @@
 <section class="section">
-    <table class="table">
-        <thead>
-            <tr>
-                <td> Title </td>
-                <td> Project Start </td>
-                <td> Project Summary </td>
-                <td> Project Url </td>
-                <td> Project Open</td>
-            </tr>
-        </thead>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td> Title </td>
+                    <td> Project Start </td>
+                    <td> Project Summary </td>
+                    <td> Project Url </td>
+                    <td> Project Open</td>
+                </tr>
+            </thead>
             <tr>
                 <td>${projectDetails.project_title}</td>
                 <td>${projectDetails.project_start}</td>
                 <td>${projectDetails.project_summary}</td>
                 <td>${projectDetails.project_url}</td>
-                <td>${projectDetails.project_open}</tr>td>
-    </table>
-</section>
+                <td>${projectDetails.project_open}</td>
+            </tr>
+        </table>
+    </section>
 <section class="section">
     <table class="table">
         <thead>
@@ -29,7 +30,7 @@
         ${projectComment.map(comments =>
         `<tr>
             <td>${comments.comments_content}</td>
-            <td>${comments.comments_user_id.content}</td>
+            <td>${comments.comments_user_id}</td>
             <td>${comments.comments_project_id}</td>
         </tr>`
         ).join('')}
