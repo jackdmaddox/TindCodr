@@ -1,17 +1,16 @@
 const db = require('./conn-model');
 
-class Review {
-    constructor(id, score, content, book_id, user_id){
+class Comment {
+    constructor(id, comments_content, book_id, user_id){
         this.id = id;
-        this.score = score;
-        this.content = content;
-        this.bookId = book_id;
+        this.comments_content = comments_content;
+        this.projectId = project_id;
         this.userId = user_id;
     }
 
     static async getById(id) {
         try {
-            const response = await db.any(`select * from reviews where book_id=${id}`);
+            const response = await db.any(`select * from comments where project_id=${id}`);
             console.log(response);
             return response;
         } catch(err) {
@@ -21,7 +20,7 @@ class Review {
 
     static async getAll() {
         try {
-            const response = await db.any(`select * from reviews`);
+            const response = await db.any(`select * from comments`);
             console.log(response);
             return response;
         } catch(err) {
@@ -29,8 +28,8 @@ class Review {
         }
     }
 
-    static async addReview(score, content, book_id, user_id) {
-        const query = `insert into reviews (score, content, book_id, user_id) values (${score}, '${content}', ${book_id}, ${user_id})`;
+    static async addComment(comments_content, project_id, user_id) {
+        const query = `insert into comments (comments_content, project_id, user_id) values ('${comments_content}', ${project_id}, ${user_id})`;
         try {
             let response = await db.result(query);
             return response;
@@ -41,4 +40,4 @@ class Review {
     }
 }
 
-module.exports = Review;
+module.exports = Comments;
