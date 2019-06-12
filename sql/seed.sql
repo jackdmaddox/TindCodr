@@ -3,10 +3,10 @@ insert into users
 VALUES 
     ('jack', 'maddox', 'jack@email.com', 'password', 'Atlanta');
 
-insert into project
-    (project_title, project_start, project_summary, project_url, project_open)
+insert into projects
+    (project_title, project_start, project_summary, project_url, project_open, project_users_id)
 VALUES
-    ('tindcodr', 'friday', 'group project 2 to take over the world!', 'bigurl here', 'Open');
+    ('tindcodr', 'friday', 'group project 2 to take over the world!', 'bigurl here', 'Open', 1);
 
 insert into comments
     (comments_content, comments_users_id, comments_project_id)
