@@ -2,12 +2,11 @@
     <table class="table">
         <thead>
             <tr>
-                <td> Project Title </td>
-                <td> Starts </td>
-                <td> Summary </td>
-                <td> Project Links </td>
-                <td> Project Open </td>
-                <td> Creator's Name </td>
+                <td> Title </td>
+                <td> Project Start </td>
+                <td> Project Summary </td>
+                <td> Project Url </td>
+                <td> Project Open</td>
             </tr>
         </thead>
     ${projectsList.map(projects => 
@@ -17,7 +16,10 @@
             <td>${projects.project_summary}</td>
             <td>${projects.project_url}</td>
             <td>${projects.project_open}</td>
+<<<<<<< HEAD
             <td>${projects.project_users_id}</td>
+=======
+>>>>>>> jackdmaddox-staging-area
         </tr>`
     ).join('')}
     </table>
