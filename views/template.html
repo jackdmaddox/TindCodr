@@ -12,8 +12,9 @@
         <div class="navbar-start">
             <a class="navbar-item" href='/'>Home</a>
             <a class="navbar-item" href='/projects'>Latest Projects</a>
+            ${!!is_logged_in ? `
+                <a class="navbar-item" href='/myprojects'>My Projects</a>
         </div>
-        ${!!is_logged_in ? `
             <div class ="navbar-end">
                 <a class="navbar-item" href="/users/logout"> Logout </a> 
             </div>
