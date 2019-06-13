@@ -111,7 +111,7 @@ exports.sign_up_post = async (req, res) => {
         hash = bcrypt.hashSync(password, salt),
 
         userInstance = new Users(null, first_name, last_name, email, hash, users_city, coding_level, about_me, picture_ur);
-=======
+
 exports.sign_up_post = (req, res) => {
     const { first_name, last_name, email, password } = req.body;
 >>>>>>> cbdd50cb13322f35086e19f0a9f4cbbd3921576b
