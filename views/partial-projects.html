@@ -1,0 +1,49 @@
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td> Title </td>
+                <td> Project Start </td>
+                <td> Project Summary </td>
+                <td> Project Url </td>
+                <td> Project Open</td>
+            </tr>
+        </thead>
+    ${projectsList.map(projects => 
+        `<tr>
+            <td><a href="/projects/${projects.id}">${projects.project_title}</a></td>
+            <td>${projects.project_start}</td>
+            <td>${projects.project_summary}</td>
+            <td>${projects.project_url}</td>
+            <td>${projects.project_open}</td>
+        </tr>`
+    ).join('')}
+    </table>
+</section>
+<section class="section">
+    ${!!is_logged_in ? `
+<p>Add a new project!</p>
+<form action="/racetracks" method="POST">
+    <label>Project Title
+        <input type="text" name="project_title">
+    </label>
+    <label>Project Start
+        <input type="text" name="project_start">
+    </label>
+    <label>Project Summary
+        <input type="text" name="project_summary">
+    </label>
+    <label>Project URL
+        <input type="text" name="project_url">
+    </label>
+    <label>Project Open
+        <input type="text" name="project_open">
+    </label>
+    <label>Project User's ID
+        <input type="text" name="project_users_id">
+    </label>
+    <button type="submit" class='is-primary'>Submit</button>
+</form>
+` : ` 
+<p> Login to add a new project listing!</p> `}
+</section>
