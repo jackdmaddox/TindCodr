@@ -2,51 +2,74 @@
     <table class="table">
         <thead>
             <tr>
-                <td> Project Title </td>
-                <td> Starts </td>
-                <td> Summary </td>
-                <td> Project Links </td>
-                <td> Project Open </td>
-                <td> Creator's Name </td>
+                <td> Title </td>
+                <td> Project Start </td>
+                <td> Project Summary </td>
+                <td> Project Url </td>
+                <td> Project Open</td>
             </tr>
         </thead>
         ${projectsList.map(projects =>
         `<tr>
-            <td><a href="/projects/${projects.id}">${projects.title}</a></td>
-            <td>${projects.start}</td>
-            <td>${projects.summary}</td>
-            <td>${projects.url}</td>
-            <td>${projects.open}</td>
-            <td>${projects.users.id</td>
-            <td><img src="${projects.picture}" alt="project cover photo picture"></td>
+            <td><a href="/projects/${projects.id}">${projects.project_title}</a></td>
+            <td>${projects.project_start}</td>
+            <td>${projects.project_summary}</td>
+            <td>${projects.project_url}</td>
+            <td>${projects.project_open}</td>
         </tr>`
         ).join('')}
     </table>
 </section>
 <section class="section">
     ${!!is_logged_in ? `
-    <p>Add a new project!</p>
-    <form action="/racetracks" method="POST">
-        <label>Title
-            <input type="text" name="title">
-        </label>
-        <label>Start
-            <input type="text" name="start">
-        </label>
-        <label>Summary
-            <input type="text" name="summary">
-        </label>
-        <label>Url
-            <input type="text" name="url">
-        </label>
-        <label>Open
-            <input type="text" name="open">
-        </label>
-        <label>Users_id
-            <input type="text" name="users_id">
-        </label>
-        <button type="submit" class='is-primary'>Submit</button>
-    </form>
-    ` : `
-    <p> Login to add a new project listing!</p> `}
+    <<<<<<< HEAD <p>Add a new project!</p>
+        <form action="/racetracks" method="POST">
+            <label>Title
+                <input type="text" name="title">
+            </label>
+            <label>Start
+                <input type="text" name="start">
+            </label>
+            <label>Summary
+                <input type="text" name="summary">
+            </label>
+            <label>Url
+                <input type="text" name="url">
+            </label>
+            <label>Open
+                <input type="text" name="open">
+            </label>
+            <label>Users_id
+                <input type="text" name="users_id">
+            </label>
+            <button type="submit" class='is-primary'>Submit</button>
+        </form>
+        ` : `
+        <p> Login to add a new project listing!</p> `}
+        =======
+        <p>Add a new project!</p>
+        <form action="/racetracks" method="POST">
+            <label>Project Title
+                <input type="text" name="project_title">
+            </label>
+            <label>Project Start
+                <input type="text" name="project_start">
+            </label>
+            <label>Project Summary
+                <input type="text" name="project_summary">
+            </label>
+            <label>Project URL
+                <input type="text" name="project_url">
+            </label>
+            <label>Project Open
+                <input type="text" name="project_open">
+            </label>
+            <label>Project User's ID
+                <input type="text" name="project_users_id">
+            </label>
+            <button type="submit" class='is-primary'>Submit</button>
+        </form>
+        ` : `
+        <p> Login to add a new project listing!</p> `}
+        >>>>>>> 59221dc9b1d909b8daaaee2b58ca11b4beee2816
 </section>
