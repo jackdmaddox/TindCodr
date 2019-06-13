@@ -28,8 +28,10 @@ class Comments {
         }
     }
 
-    static async addComment(comments_content, comments_project_id, comments_user_id) {
-        const query = `insert into comments (comments_content, comments_project_id, comments_user_id) values ('${comments_content}', ${comments_project_id}, ${comments_user_id})`;
+    static async addComment(comments_content, comments_project_id, comments_users_id) {
+        const query = `insert into comments (comments_content, comments_users_id, comments_project_id) values ('${comments_content}', ${comments_users_id}, ${comments_project_id})`;
+        console.log('project id is: ', comments_project_id);
+        console.log('user id is: ', comments_users_id);
         try {
             let response = await db.result(query);
             return response;
