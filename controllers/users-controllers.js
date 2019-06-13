@@ -74,32 +74,55 @@ exports.logout_get = (req, res) => {
 exports.login_page_post = async (req, res) => {
     const { email, password } = req.body,
         userInstance = new Users(null, null, null, email, password);
-
-    try {
-        let response = await userInstance.getUserByEmail();
-
+        const userData = await userInstance.getUserByEmail();
+        const isValid = bcrypt.compareSync(password, userData.users_password);
+        console.log(userData);
+        if (!!isValid) {
         req.session.is_logged_in = true;
-        req.session.first_name = response.first_name;
-        req.session.last_name = response.last_name;
-        req.session.user_id = response.id;
-
+        req.session.first_name = userData.users_first_name;
+        req.session.last_name = userData.users_last_name;
+        req.session.user_id = userData.id;
+        req.session.city = userData.users_city;
         console.log('CORRECT PW!');
+<<<<<<< HEAD
         res.redirect('/users/');
     } catch (err) {
         console.log('WRONG PW!')
+=======
+        res.redirect('/');
+    } else {
+        console.log('WRONG PW!');
+>>>>>>> cbdd50cb13322f35086e19f0a9f4cbbd3921576b
         res.redirect('/users/signup');
+        res.sendStatus(401);
     }
 }
 
+<<<<<<< HEAD
 exports.sign_up_post = async (req, res) => {
     const { first_name, last_name, email, password, users_city, coding_level, about_me, picture_url } = req.body,
         salt = bcrypt.genSaltSync(10),
         hash = bcrypt.hashSync(password, salt),
 
         userInstance = new Users(null, first_name, last_name, email, hash, users_city, coding_level, about_me, picture_ur);
+=======
+exports.sign_up_post = (req, res) => {
+    const { first_name, last_name, email, password } = req.body;
+>>>>>>> cbdd50cb13322f35086e19f0a9f4cbbd3921576b
 
-    let check = await userInstance.checkIfCreated();
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt); 
+    
+    const userInstance = new User(null, first_name, last_name, email, hash);
+    userInstance.save().then(response => {
+        req.session.first_name = response.first_name;
+        req.session.last_name = response.last_name;
+        req.session.user_id = response.id;
+        res.redirect('/');
+    });
+}
 
+<<<<<<< HEAD
     if (typeof check === 'object') {
         res.redirect('/users/login');
     } else {
@@ -109,3 +132,5 @@ exports.sign_up_post = async (req, res) => {
         }).catch(err => err)
     }
 }
+=======
+>>>>>>> cbdd50cb13322f35086e19f0a9f4cbbd3921576b
