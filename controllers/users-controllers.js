@@ -24,6 +24,19 @@ exports.user_page_get = async (req, res) => {
     });
 }
 
+exports.user_edit_profile_get = async (req, res) => {
+    res.render('template', {
+        locals: {
+            title: 'Edit Profile Page',
+            userInfo: getUserInfo,
+            is_logged_in: req.session.is_logged_in
+        },
+        partials: {
+            partial: 'partial-edit-profile'
+        }
+    });
+}
+
 exports.login_page_get = (req, res) => {
     res.render('template', {
         locals: {

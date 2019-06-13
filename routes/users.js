@@ -21,6 +21,8 @@ router.get('/login', UsersControllers.login_page_get);
 
 router.get('/signup', UsersControllers.sign_up_get);
 
+//router.get('users/edit_profile', UsersControllers.edit_profile_get);
+
 router.post('/login', UsersControllers.login_page_post);
 
 router.post('/signup', UsersControllers.sign_up_post);
