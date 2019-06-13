@@ -20,10 +20,10 @@ class User {
     async getUserByEmail() {
         try {
             const userData = await db.one(`
-            select id, users_first_name, users_last_name, users_password, users_city
+            select id, first_name, last_name, password
                 from users
-            where users_email = $1`, 
-            [this.users_email]);
+            where email = $1`, 
+            [this.email]);
             return userData;
         } catch (err) {
             return err.message;
@@ -67,10 +67,14 @@ static async getUserById() {
     async checkIfCreated() {
         try {
 <<<<<<< HEAD
+<<<<<<< HEAD
             const response = await db.one(`SELECT * FROM users WHERE email=${1}`);
 =======
             const response = await db.one(`SELECT users_email FROM users WHERE users_email =$1`, [this.users_email]);
 >>>>>>> cbdd50cb13322f35086e19f0a9f4cbbd3921576b
+=======
+            const response = await db.one(`SELECT email FROM users WHERE email =$1`, [this.email]);
+>>>>>>> 9fdef59579628883aa456106230178242bce557b
             return response;
         } catch(err) {
             return err.message
