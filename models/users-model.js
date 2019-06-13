@@ -17,13 +17,26 @@ class User {
         return bcrypt.compareSync(this.users_password, hashedPassword);
     }
 
+    async getUserByEmail() {
+        try {
+            const userData = await db.one(`
+            select id, first_name, last_name, password
+                from users
+            where email = $1`, 
+            [this.email]);
+            return userData;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
     async save() {
         try {
             const response = await db.one(
                 `insert into users
                     (users_first_name, users_last_name, users_email, users_password, users_city)
                 values
-                    ($1, $2, $3, $4, $5, $6)
+                    ($1, $2, $3, $4, $5)
                 returning id
                 `, [this.users_first_name, this.users_last_name, this.users_email, this.users_password, this.users_city]);
             console.log('user was created with id:', response.id);
@@ -32,6 +45,24 @@ class User {
             return err.message;
         }
     }
-}
 
+    static async getAll() {
+        try {
+            let response = await db.any(`select * from users`);
+            return response;
+        } catch(err) {
+            return err.message
+        }
+    }
+
+
+    async checkIfCreated() {
+        try {
+            const response = await db.one(`SELECT email FROM users WHERE email =$1`, [this.email]);
+            return response;
+        } catch(err) {
+            return err.message
+        }
+    }
+}
 module.exports = User;
