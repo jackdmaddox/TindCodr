@@ -1,5 +1,6 @@
-const Users = require('../models/users-model'),
-    bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+    Users = require('../models/users-model'),
+
 
 ///////
 // PAGE GETS //
@@ -62,7 +63,7 @@ exports.login_page_post = async (req, res) => {
         userInstance = new Users(null, null, null, email, password);
 
     try {
-        let response = await userInstance.login();
+        let response = await userInstance.getUserByEmail();
 
         req.session.is_logged_in = true;
         req.session.first_name = response.first_name;
@@ -81,6 +82,7 @@ exports.sign_up_post = async (req, res) => {
     const { first_name, last_name, email, password } = req.body,
         salt = bcrypt.genSaltSync(10),
         hash = bcrypt.hashSync(password, salt),
+
         userInstance = new Users(null, first_name, last_name, email, hash);
 
     let check = await userInstance.checkIfCreated();
