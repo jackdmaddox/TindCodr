@@ -4,7 +4,10 @@ create table users (
   users_last_name varchar(100),
   users_email varchar(100), 
   users_password varchar(500),
-  users_city varchar(100)
+  users_city varchar(100),
+  coding_level varchar(200),
+  about_me varchar(1000), 
+  picture_path varchar(500)
 );
 
 create table projects (

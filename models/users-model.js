@@ -34,11 +34,11 @@ class User {
         try {
             const response = await db.one(
                 `insert into users
-                    (users_first_name, users_last_name, users_email, users_password, users_city)
+                    (users_first_name, users_last_name, users_email, users_password, users_city, coding_level, about_me, picture_url)
                 values
-                    ($1, $2, $3, $4, $5)
+                    ($1, $2, $3, $4, $5, $6, $7, $8)
                 returning id
-                `, [this.users_first_name, this.users_last_name, this.users_email, this.users_password, this.users_city]);
+                `, [this.users_first_name, this.users_last_name, this.users_email, this.users_password, this.users_city, this.coding_level, this.about_me, this.picture_url]);
             console.log('user was created with id:', response.id);
             return response;
         } catch (err) {
@@ -55,10 +55,18 @@ class User {
         }
     }
 
+static async getUserById() {
+    try {
+        const userData = await db.one(`select * from users where id=${id}`);
+        return userData;
+    } catch (err) {
+        return err.message
+    }
+}
 
     async checkIfCreated() {
         try {
-            const response = await db.one(`SELECT email FROM users WHERE email =$1`, [this.email]);
+            const response = await db.one(`SELECT * FROM users WHERE email=${1}`);
             return response;
         } catch(err) {
             return err.message

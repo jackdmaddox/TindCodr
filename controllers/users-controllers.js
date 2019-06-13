@@ -24,6 +24,19 @@ exports.user_page_get = async (req, res) => {
     });
 }
 
+exports.user_edit_profile_get = async (req, res) => {
+    res.render('template', {
+        locals: {
+            title: 'Edit Profile Page',
+            userInfo: getUserInfo,
+            is_logged_in: req.session.is_logged_in
+        },
+        partials: {
+            partial: 'partial-edit-profile'
+        }
+    });
+}
+
 exports.login_page_get = (req, res) => {
     res.render('template', {
         locals: {
@@ -71,7 +84,7 @@ exports.login_page_post = async (req, res) => {
         req.session.user_id = response.id;
 
         console.log('CORRECT PW!');
-        res.redirect('/users');
+        res.redirect('/users/');
     } catch (err) {
         console.log('WRONG PW!')
         res.redirect('/users/signup');
@@ -79,11 +92,11 @@ exports.login_page_post = async (req, res) => {
 }
 
 exports.sign_up_post = async (req, res) => {
-    const { first_name, last_name, email, password } = req.body,
+    const { first_name, last_name, email, password, users_city, coding_level, about_me, picture_url } = req.body,
         salt = bcrypt.genSaltSync(10),
         hash = bcrypt.hashSync(password, salt),
 
-        userInstance = new Users(null, first_name, last_name, email, hash);
+        userInstance = new Users(null, first_name, last_name, email, hash, users_city, coding_level, about_me, picture_ur);
 
     let check = await userInstance.checkIfCreated();
 
@@ -92,7 +105,7 @@ exports.sign_up_post = async (req, res) => {
     } else {
         await userInstance.save().then(response => {
             console.log('response is:', response);
-            res.redirect('/');
+            res.redirect('/users');
         }).catch(err => err)
     }
 }
