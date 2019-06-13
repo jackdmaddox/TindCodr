@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-    Users = require('../models/users-model'),
+    User = require('../models/users-model'),
 
 
 ///////
@@ -60,7 +60,7 @@ exports.logout_get = (req, res) => {
 
 exports.login_page_post = async (req, res) => {
     const { email, password } = req.body,
-        userInstance = new Users(null, null, null, email, password);
+        userInstance = new User(null, null, null, email, password);
         const userData = await userInstance.getUserByEmail();
         const isValid = bcrypt.compareSync(password, userData.users_password);
         console.log(userData);

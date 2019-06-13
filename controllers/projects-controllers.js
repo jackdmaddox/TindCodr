@@ -33,17 +33,38 @@ exports.ProjectById_get = async (req, res) => {
     });
 }
 
+exports.ProjectsByUserId_get = async (req, res) =>{
+    const UserId = req.session.user_id;
+    console.log('this is req params: ', req.session.user_id)
+    console.log('user id being called is: ', UserId);
+    const myProjects = await ProjectsModels.getByUserId(UserId);
+    res.render('template', {
+        locals: {
+            title: 'My Projects',
+            myListOfProjects: myProjects,
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
+        },
+        partials: {
+            partial: 'partial-myprojects',
+        }
+    });
+
+}
+
 exports.addProject_post = async (req, res) => {
     const { project_title, project_start, project_summary, project_url, project_open, project_users_id} = req.body;
 
-    ProjectsModels.add(project_title, project_start, project_summary, project_url, project_open, project_users_id)
+    ProjectsModels.addProject(project_title, project_start, project_summary, project_url, project_open, project_users_id)
     .then(async () => {
         const allProjects = await ProjectsModels.getAll();
         
         res.status(200).render('template', {
             locals: {
                 title: 'Projects Updated',
-                projectsList: allProjects
+                projectsList: allProjects,
+                is_logged_in: req.session.is_logged_in,
+
             },
             partials: {
                 partial: 'partial-projects',
@@ -56,8 +77,8 @@ exports.addProject_post = async (req, res) => {
 }
 
 exports.addComment_post = async (req, res) => {
-    const {comments_content, comments_users_id, comments_project_id} = req.body;
-    CommentModels.addComment(comments_content, comments_users_id, comments_project_id)
+    const {comments_content, comments_project_id, comments_users_id} = req.body;
+    CommentModels.addComment(comments_content, comments_project_id, comments_users_id)
     .then(async () => {
         res.redirect('/');
     })
