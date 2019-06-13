@@ -21,5 +21,5 @@ create table comments (
   id serial primary key,
   comments_content varchar(500),
   comments_users_id integer references users(id),
-  comments_project_id integer references project(id)
+  comments_project_id integer references projects(id)
   );
