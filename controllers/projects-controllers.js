@@ -80,7 +80,7 @@ exports.addComment_post = async (req, res) => {
     const {comments_content, comments_project_id, comments_users_id} = req.body;
     CommentModels.addComment(comments_content, comments_project_id, comments_users_id)
     .then(async () => {
-        res.redirect('/');
+        res.redirect(`/projects/${comments_project_id}`);
     })
     .catch((err) => {
         res.sendStatus(500).send(err.message);

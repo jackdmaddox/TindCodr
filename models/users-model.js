@@ -69,7 +69,7 @@ class User {
     async getUserInfo() {
         try {
             const userData = await db.one(`
-            select id, users_first_name, users_last_name, users_password, users_city, users_about_me
+            select id, users_first_name, users_last_name, users_password, users_city, users_about_me, users_email
                 from users
             where id = $1`, 
             [this.id]);

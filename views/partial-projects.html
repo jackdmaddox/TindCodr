@@ -1,25 +1,41 @@
-<section class="section">
-    <table class="table">
-        <thead>
-            <tr>
-                <td> Title </td>
-                <td> Project Start </td>
-                <td> Project Summary </td>
-                <td> Project Url </td>
-                <td> Project Open</td>
-            </tr>
-        </thead>
-    ${projectsList.map(projects => 
-        `<tr>
-            <td><a href="/projects/${projects.id}">${projects.project_title}</a></td>
-            <td>${projects.project_start}</td>
-            <td>${projects.project_summary}</td>
-            <td>${projects.project_url}</td>
-            <td>${projects.project_open}</td>
-        </tr>`
-    ).join('')}
-    </table>
-</section>
+<div class="project-container">
+        <section class="section">
+                <h1 class="login-text">${title}</h1><br />
+                <table class="table">
+                  ${projectsList.map(projects =>
+                  `
+                  <article class="media">
+                    <figure class="media-left">
+                      <p class="image is-120x120">
+                        <img src="https://bulma.io/images/placeholders/128x128.png">
+                      </p>
+                    </figure>
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>${projects.users_first_name} ${projects.users_last_name}</strong>
+                          <small>${projects.users_email}</small>
+                          <br>
+                          <a href="/projects/${projects.id}">Project Title: <strong>${projects.project_title}</strong></a><br />
+                          Project Summary: <strong>${projects.project_summary}</strong><br />
+                          Project Start: <strong>${projects.project_start}</strong><br />
+                          Project URL: <strong>${projects.project_url}</strong><br />
+                          Project Status:<strong>${projects.project_open}</strong><br />
+                        </p>
+                      </div>
+                    </div>
+                  </article>`
+                  ).join('')}
+                </table>
+                ${!!is_logged_in ? `
+                <a href="/projects/new">
+                </a>
+                ` : `
+                <a href="/users/login">
+                  <p> Login to add a new project listing!</p>
+                </a> `}
+            
+              </section>
 <section class="section">
     ${!!is_logged_in ? `
 <p>Add a new project!</p>
@@ -47,3 +63,5 @@
 ` : ` 
 <p> Login to add a new project listing!</p> `}
 </section>
+</div>
+

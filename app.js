@@ -1,6 +1,6 @@
 const express = require('express')
     session = require('express-session'),
-    FileStore = require('session-file-store')(session),
+    // FileStore = require('session-file-store')(session),
     es6Renderer = require('express-es6-template-engine'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
@@ -12,6 +12,7 @@ const projectsRouter = require('./routes/projects');
 const myProjectsRouter = require('./routes/myprojects');
 const myProfileRouter = require('./routes/myprofile');
 const matchMakerRouter = require('./routes/matchmaker');
+const myMatchesRouter = require('./routes/mymatches');
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    store: new FileStore(),
+    // store: new FileStore(),
     secret: 'get rad',
     resave: false,
     saveUninitialized: true,
@@ -38,5 +39,6 @@ app.use('/projects', projectsRouter);
 app.use('/myprojects', myProjectsRouter);
 app.use('/myprofile', myProfileRouter);
 app.use('/matchmaker', matchMakerRouter);
+app.use('/mymatches', myMatchesRouter);
 
 module.exports = app;

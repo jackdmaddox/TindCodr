@@ -9,10 +9,6 @@ const ProjectsController = require('../controllers/projects-controllers');
 const UsersController = require('../controllers/users-controllers');
 
 
-router.get('/', UsersController.matchmaker_page_get);
-
-router.post('/', UsersController.matchmaker_liked_post);
-
-router.post('/dislike', UsersController.matchmaker_disliked_post);
+router.get('/', UsersController.mymatches_page_get);
 
 module.exports = router;
