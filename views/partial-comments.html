@@ -8,7 +8,7 @@
                     <td> Project Start </td>
                     <td> Project Summary </td>
                     <td> Project Url </td>
-                    <td> Project Open</td>
+                    <td> Project Status</td>
                     <td> Project Creator</td>
                 </tr>
             </thead>
@@ -26,16 +26,14 @@
     <table class="table">
         <thead>
             <tr>
-                <td> Content </td>
-                <td> User Name </td>
-                <td> Project Id </td>
+                <td> Comment </td>
+                <td> Posted By </td>
             </tr>
         </thead>
         ${projectComment.map(comments =>
         `<tr>
             <td>${comments.comments_content}</td>
-            <td>${comments.comments_users_id}</td>
-            <td>${comments.comments_project_id}</td>
+            <td>${comments.users_first_name} ${comments.users_last_name}</td>
         </tr>`
         ).join('')}
     </table>
