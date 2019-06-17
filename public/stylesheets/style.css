@@ -1,8 +1,110 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  overflow-y: auto;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  font-style: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  background: #56BFF6;
+}
+
+.main {
+  background: #56BFF6;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 63%, 0 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 63%, 0 100%);
+}
+
+.main .container {
+  padding-top: 50px;
+}
+
+.hero-content {
+  color: white;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 15%;
+  text-align: center;
+}
+
+.hero-text {
+  font-size: 50px;
+}
+
+.hero-title {
+  font-size: 80px;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  background: #c2e8fc;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 10%; 
+}
+
+.form {
+  background: #fff;
+  width: 40%;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 0px 5px 0px rgba(176,176,176,1);
+  -moz-box-shadow: 2px 0px 5px 0px rgba(176,176,176,1);
+  box-shadow: 2px 0px 5px 0px rgba(176,176,176,1);
+}
+
+.login-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.project-container {
+  position: absolute;
+  top: 0;
+  background: #c2e8fc;
+  width: 100%;
+  min-height: 100%;
+}
+
+.project-container .section {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.table {
+  text-align: center;
+  width: 100%;
+}
+
+.profile {
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.profile .profile-name {
+  margin: 20%;
+  font-size: 18px;
+  display: block;
+}
+
+.credentials {
+  text-align: left;
+  font-size: 20px;
 }

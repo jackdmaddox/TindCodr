@@ -25,7 +25,7 @@ describe('Users model tests', () => {
     it('should make sure incorrect passwords are incorrect', async () => {
         const users_password = 'wrongpassword';
         const users_email = 'matt@bmx.com';
-        const userInstance = new User(null, null, null, users_email, users_password, null);
+        const userInstance = new User(null, null, null, users_email, users_password, null, null);
         const userData = await userInstance.getUserByEmail();
         console.log(userData);
         const isValid = bcrypt.compareSync(users_password, userData.users_password);

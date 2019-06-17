@@ -14,7 +14,7 @@ class Projects {
 
     static async getAll() {
         try {
-            const response = await db.any(`select * from projects`);
+            const response = await db.any(`select * from projects LEFT JOIN users ON projects.project_users_id = users.id`);
             return response;
         } catch(err) {
             return err.message
@@ -24,7 +24,7 @@ class Projects {
 
     static async getById(id) {
         try {
-            const response = await db.one(`select * from projects where id=${id}`);
+            const response = await db.one(`select * from projects LEFT JOIN users ON projects.project_users_id=users.id where projects.id=${id}`);
             return response;
         } catch(err) {
             return err.message

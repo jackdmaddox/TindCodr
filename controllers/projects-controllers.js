@@ -7,7 +7,9 @@ exports.allProjects_get = async (req, res) => {
         locals: {
             title: 'Projects',
             projectsList: allProjects,
-            is_logged_in: req.session.is_logged_in
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
+
         },
         partials: {
             partial: 'partial-projects',
@@ -64,6 +66,7 @@ exports.addProject_post = async (req, res) => {
                 title: 'Projects Updated',
                 projectsList: allProjects,
                 is_logged_in: req.session.is_logged_in,
+                user_id: req.session.user_id
 
             },
             partials: {
@@ -80,7 +83,7 @@ exports.addComment_post = async (req, res) => {
     const {comments_content, comments_project_id, comments_users_id} = req.body;
     CommentModels.addComment(comments_content, comments_project_id, comments_users_id)
     .then(async () => {
-        res.redirect('/');
+        res.redirect(`/projects/${comments_project_id}`);
     })
     .catch((err) => {
         res.sendStatus(500).send(err.message);

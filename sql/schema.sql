@@ -4,7 +4,8 @@ create table users (
   users_last_name varchar(100),
   users_email varchar(100), 
   users_password varchar(500),
-  users_city varchar(100)
+  users_city varchar(100),
+  users_about_me varchar(1000)
 );
 
 create table projects (
@@ -23,3 +24,16 @@ create table comments (
   comments_users_id integer references users(id),
   comments_project_id integer references projects(id)
   );
+
+create table likes (
+  id serial primary key,
+  liker_id integer references users(id),
+  liked_id integer references users(id)
+);
+
+create table dislikes (
+  id serial primary key,
+  liker_id integer references users(id),
+  liked_id integer references users(id)
+);
+

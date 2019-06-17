@@ -1,0 +1,31 @@
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td> First Name </td>
+                <td> Last Name</td>
+                <td> Email </td>
+                <td> City </td>
+                <td> About Me</td>
+            </tr>
+        </thead>
+        <tr>
+            <td>${userInfo.users_first_name}</td>
+            <td>${userInfo.users_last_name}</td>
+            <td>${userInfo.users_email}</td>
+            <td>${userInfo.users_city}</td>
+            <td>${userInfo.users_about_me}</td>
+            <p>${userInfo.id}</p>
+        </tr>
+    </table>
+    <form action="/matchmaker/dislike" method="POST">
+        <input type="hidden" name="liked_id" value="${userInfo.id}">
+        <input type="hidden" name="liker_id" value="${user_id}">
+        <button type="submit" class='is-primary'>Next Profile</button>    
+    </form>
+    <form action="/matchmaker" method="POST">
+        <input type="hidden" name="liked_id" value="${userInfo.id}">
+        <input type="hidden" name="liker_id" value="${user_id}">
+        <button type="submit" class='is-primary'>Suggest a coffee!</button>
+    </form>
+</section>

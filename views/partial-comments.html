@@ -1,4 +1,6 @@
+<div class="project-container">
 <section class="section">
+    <h1 class="login-text">${projectDetails.project_title}</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -6,7 +8,8 @@
                     <td> Project Start </td>
                     <td> Project Summary </td>
                     <td> Project Url </td>
-                    <td> Project Open</td>
+                    <td> Project Status</td>
+                    <td> Project Creator</td>
                 </tr>
             </thead>
             <tr>
@@ -15,43 +18,40 @@
                 <td>${projectDetails.project_summary}</td>
                 <td>${projectDetails.project_url}</td>
                 <td>${projectDetails.project_open}</td>
+                <td>${projectDetails.users_first_name}</td>
             </tr>
         </table>
-        <p>project details : ${projectDetails.id}</p>
-        <p>user id below : ${user_id}</p>
     </section>
 <section class="section">
     <table class="table">
         <thead>
             <tr>
-                <td> Content </td>
-                <td> User ID </td>
-                <td> Project Id </td>
+                <td> Comment </td>
+                <td> Posted By </td>
             </tr>
         </thead>
         ${projectComment.map(comments =>
         `<tr>
             <td>${comments.comments_content}</td>
-            <td>${comments.comments_users_id}</td>
-            <td>${comments.comments_project_id}</td>
+            <td>${comments.users_first_name} ${comments.users_last_name}</td>
         </tr>`
         ).join('')}
     </table>
 </section>
 <section class="section">
     ${!!is_logged_in ? `
-    <h1>Add a new project comment!</h1>
     <br>
     <form action="/projects/update" method="POST">
         <input type="hidden" name="comments_project_id" value="${projectDetails.id}">
         <input type="hidden" name="comments_users_id" value="${user_id}">
-        <label>Write Your Review Below:
+        <label>Write Your Comments Below:
             <br>
-            <textarea rows="10" cols="120" name="comments_content"> </textarea>
         </label>
+            <textarea class="textarea is-info has-fixed-size" rows="5" name="comments_content" placeholder="Write Your comments or questions here"></textarea>
         <br>
-        <button type="submit" class='is-primary'>Submit</button>
+        <button type="submit" class='is-info button'>Submit</button>
     </form>
     ` : `
     <P> Login to submit your review </P> `}
 </section>
+</div>

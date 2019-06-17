@@ -1,12 +1,25 @@
-<form action="/users/login" method="POST">
-    <label>
-        Email Address
-        <input type="text" name="email" placeholder="you@email.com" />
-    </label>
-    <label>
-        Password
-        <input type="password" name="password" placeholder="Your Password" />
-    </label>
-    <button type="submit" CLASS="is-primary"> LOGIN </button>
+<div class="form-container">
+<form action="/users/login" method="POST" class="form">
+    <h1 class="login-text">${title}</h1><br/>
+    <div class="field">
+            <div class="control has-icons-left">
+                <input class="input is-primary" type="email" name="email" placeholder="Input your Email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+             </div>
+          </div>
+          <div class="field">
+                <div class="control has-icons-left">
+                    <input class="input is-primary" type="password" name="password" placeholder="Your Password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </div>
+              </div>
+              <button type="submit" class="button is-info"> LOGIN </button> <br/><br />
+              <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=your_client_id"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
 </form>
-<a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=your_client_id"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+</div>
+
+

@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('template', { 
     locals: {
-      title: 'Welcome to the index page', 
+      title: 'TindCodr', 
       is_logged_in: req.session.is_logged_in
 
     },
