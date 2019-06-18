@@ -2,7 +2,8 @@
 <section class="section">
     <p class='hero-text'>Your Projects</p>
     <br>
-    <table class="table">
+    <div class="table-container">
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table-container">
         <thead>
             <tr>
                 <td> Title </td>
@@ -22,6 +23,7 @@
         </tr>`
     ).join('')}
     </table>
+    </div>
 </section>
 <section class="section">
     ${!!is_logged_in ? `<a href="/projects/new"> Add New Project

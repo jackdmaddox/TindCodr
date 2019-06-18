@@ -49,6 +49,11 @@ html {
   margin-right: 1rem;
 }
 
+.hero-smaller-text {
+  font-size: 16px;
+}
+
+
 .hero-title {
   font-size: 40px;
   color: black;
@@ -71,6 +76,10 @@ html {
   color: white;
 }
 
+.hero-smaller-text {
+  font-size: 36px;
+}
+
 .hero-text {
   font-size: 50px;
   color:white;
@@ -85,10 +94,6 @@ html {
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 63%, 0 100%);
   clip-path: polygon(0 0, 100% 0%, 100% 63%, 0 100%);
 }
-}
-
-.hero-smaller-text {
-  font-size: 36px;
 }
 
 
