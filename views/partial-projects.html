@@ -1,15 +1,15 @@
 <div class="project-container">
         <section class="section">
-                <h1 class="login-text">${title}</h1><br />
+            <p class='hero-text'>Latest Projects</p>
+              <br>
+              <a href="/projects/new"> Add New Project
+              </a>
+                <br>
                 <table class="table">
                   ${projectsList.map(projects =>
                   `
                   <article class="media">
-                    <figure class="media-left">
-                      <p class="image is-120x120">
-                        <img src="https://bulma.io/images/placeholders/128x128.png">
-                      </p>
-                    </figure>
+                    
                     <div class="media-content">
                       <div class="content">
                         <p>
@@ -28,38 +28,13 @@
                   ).join('')}
                 </table>
                 ${!!is_logged_in ? `
-                <a href="/projects/new">
+                <a href="/projects/new"> Add New Project
                 </a>
                 ` : `
                 <a href="/users/login">
                   <p> Login to add a new project listing!</p>
                 </a> `}
             
-              </section>
-<section class="section">
-    ${!!is_logged_in ? `
-<p>Add a new project!</p>
-<form action="/projects" method="POST">
-    <label>Project Title
-        <input type="text" name="project_title">
-    </label>
-    <label>Project Start
-        <input type="text" name="project_start">
-    </label>
-    <label>Project Summary
-        <input type="text" name="project_summary">
-    </label>
-    <label>Project URL
-        <input type="text" name="project_url">
-    </label>
-    <label>Project Open
-        <input type="text" name="project_open">
-    </label>
-    <input type="hidden" name="project_users_id" value="${user_id}">
-    <button type="submit" class='is-primary'>Submit</button>
-</form>
-` : ` 
-<p> Login to add a new project listing!</p> `}
 </section>
 </div>
 
