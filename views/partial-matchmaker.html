@@ -1,31 +1,35 @@
+<div class="project-container">
 <section class="section">
-    <table class="table">
-        <thead>
-            <tr>
-                <td> First Name </td>
-                <td> Last Name</td>
-                <td> Email </td>
-                <td> City </td>
-                <td> About Me</td>
-            </tr>
-        </thead>
-        <tr>
-            <td>${userInfo.users_first_name}</td>
-            <td>${userInfo.users_last_name}</td>
-            <td>${userInfo.users_email}</td>
-            <td>${userInfo.users_city}</td>
-            <td>${userInfo.users_about_me}</td>
-            <p>${userInfo.id}</p>
-        </tr>
+    <p class='hero-text'>Match Maker</p>
+    <p class='hero-smaller-text'>Find your new coding mentor! Click the coffee if you want to meet them. Click no fire if they're not your desire.</p>
+    <br>
+    <div class="profile">
+            <img src="images/person4.png">
+
+        </div>
+        <div class="credentials">
+            <p>First Name: ${userInfo.users_first_name}</p>
+            <p>Last Name: ${userInfo.users_last_name}</p>
+            <p>Email: ${userInfo.users_email}</p>
+            <p>City: ${userInfo.users_city}</p>
+            <p>About me: ${userInfo.users_about_me}</p>
+        </div>
+        <br>
+    <table border-spacing="40px">
+    <div class="match-buttons"><p>
+    <td><form action="/matchmaker/dislike" method="POST">
+        <input type="hidden" name="liked_id" value="${userInfo.id}">
+        <input type="hidden" name="liker_id" value="${user_id}">
+        <button type="submit" class='is-primary'><img src="images/no_match.png" alt="Next Profile">
+            </button> 
+    </form></td>
+    <td><form action="/matchmaker" method="POST">
+        <input type="hidden" name="liked_id" value="${userInfo.id}">
+        <input type="hidden" name="liker_id" value="${user_id}">
+        <button type="submit" class='is-primary'><img src="images/coffee.png" alt="Suggest a coffee!">
+            </button>
+    </form></td>
+    </div>
     </table>
-    <form action="/matchmaker/dislike" method="POST">
-        <input type="hidden" name="liked_id" value="${userInfo.id}">
-        <input type="hidden" name="liker_id" value="${user_id}">
-        <button type="submit" class='is-primary'>Next Profile</button>    
-    </form>
-    <form action="/matchmaker" method="POST">
-        <input type="hidden" name="liked_id" value="${userInfo.id}">
-        <input type="hidden" name="liker_id" value="${user_id}">
-        <button type="submit" class='is-primary'>Suggest a coffee!</button>
-    </form>
 </section>
+</div>

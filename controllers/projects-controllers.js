@@ -54,6 +54,22 @@ exports.ProjectsByUserId_get = async (req, res) =>{
 
 }
 
+exports.newProjects_get = async (req, res) => {
+    if (!req.session.is_logged_in) {
+        return res.redirect("/users/login")
+    }
+      res.render('template', {
+          locals: {
+              title: 'Create a New Project',
+              is_logged_in: req.session.is_logged_in,
+              user_id: req.session.user_id
+          },
+          partials: {
+              partial: 'partial-newprojects',
+          }
+      });
+  }
+
 exports.addProject_post = async (req, res) => {
     const { project_title, project_start, project_summary, project_url, project_open, project_users_id} = req.body;
 

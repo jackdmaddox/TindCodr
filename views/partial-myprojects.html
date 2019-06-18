@@ -1,7 +1,9 @@
 <div class="project-container">
 <section class="section">
-    <h1 class="login-text"> Here are your Latest Projects</h1>
-    <table class="table">
+    <p class='hero-text'>Your Projects</p>
+    <br>
+    <div class="table-container">
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth table-container">
         <thead>
             <tr>
                 <td> Title </td>
@@ -21,30 +23,15 @@
         </tr>`
     ).join('')}
     </table>
+    </div>
 </section>
 <section class="section">
-    ${!!is_logged_in ? `
-<p>Add a new project!</p>
-<form action="/projects" method="POST">
-    <label>Project Title
-        <input type="text" name="project_title">
-    </label>
-    <label>Project Start
-        <input type="text" name="project_start">
-    </label>
-    <label>Project Summary
-        <input type="text" name="project_summary">
-    </label>
-    <label>Project URL
-        <input type="text" name="project_url">
-    </label>
-    <label>Project Open
-        <input type="text" name="project_open">
-    </label>
-    <input type="hidden" name="project_users_id" value="${user_id}">
-    <button type="submit" class='is-primary'>Submit</button>
-</form>
-` : ` 
-<p> Login to add a new project listing!</p> `}
+    ${!!is_logged_in ? `<a href="/projects/new"> Add New Project
+    </a>
+    ` : `
+    <a href="/users/login">
+      <p> Login to add a new project listing!</p>
+    </a> `}
+
 </section>
 </div>

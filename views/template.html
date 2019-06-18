@@ -12,34 +12,48 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         ${!!is_logged_in ? `
         <div class="navbar-brand">
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <div id="navbar-logo">
+                <a class="navbar-item" href="https://www.digitalcrafts.com/">
+                    <img src="images/logo.png" width="28" height="28">
+                </a>
+                </div>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-        </a>
+                </a>
         </div>
         <div id="navbarBasicExample" div class="navbar-menu">
             <div class="navbar-start">
             <a class="navbar-item" href='/'>Home</a>
-            <a class="navbar-item" href='/projects'>Latest Projects</a>
-            <a class="navbar-item" href='/myprojects'>My Projects</a>
+            <a class="navbar-item" href="/projects">Latest Projects</a> 
+            <a class="navbar-item" href="/myprojects">My Projects</a>
             <a class="navbar-item" href='/myprofile'>My Profile</a>
             <a class="navbar-item" href='/matchmaker'>Match Maker</a>
             <a class="navbar-item" href='/mymatches'>My Matches</a>
             </div>
-        
             <div class ="navbar-end">
                 <a class="navbar-item" href="/users/logout"> Logout </a> 
             </div>
         </div>
             ` : `
-        <div class="navbar-start container">
-            <a class="navbar-item" href='/'>Home</a>
-            <a class="navbar-item" href='/projects'>Latest Projects</a>
-        <div class="navbar-end">
-            <a class="navbar-item" href="/users/login"> Login </a> 
-            <a class="navbar-item" href="/users/signup"> Signup</a>
-        </div>
+            <div class="navbar-brand">
+                    <a class="navbar-item" href="https://www.digitalcrafts.com/">
+                        <img src="images/logo.png" width="28" height="28">
+                    </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" div class="navbar-menu">
+                <div class="navbar-start">
+                        <a class="navbar-item" href='/'>Home</a>
+                        <a class="navbar-item" href="/users/login"> Login </a> 
+                        <a class="navbar-item" href="/users/signup"> Signup</a>
+                </div>
+            </div>
             `}
     </nav>
     <main>
